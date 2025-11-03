@@ -40,22 +40,20 @@ What happens?
 
 **Goals:** Learn how Spring maps URLs to methods with annotations.
 
-1. Create a new class in the `com.example.hellospring` package:
+1. Create a new class in the `com.example.hello_spring` package:
 
 ```java
 package com.example.hellospring;
 
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-
-@GetMapping("/hello")
-public String sayHello() {
-return "Hello Spring Boot!";
-}
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello Spring Boot!";
+    }
 }
 ```
 
@@ -77,7 +75,7 @@ Create another method in the same class, e.g.
 ```java
 @GetMapping("/bye")
 public String sayBye() {
-return "Goodbye Spring!";
+    return "Goodbye Spring!";
 }
 ```
 
@@ -97,7 +95,7 @@ public record Greeting(String message, int id) {}
 ```java
 @GetMapping("/greeting")
 public Greeting greeting() {
-return new Greeting("Welcome to Spring Boot!", 1);
+    return new Greeting("Welcome to Spring Boot!", 1);
 }
 ```
 3. Run the application and test:
@@ -121,11 +119,10 @@ http://localhost:8080/greeting
 ```java
 @RestController
 public class InfoController {
-
-@GetMapping("/info")
-public String info() {
-return "Spring Boot makes Java web apps easy!";
-}
+    @GetMapping("/info")
+    public String info() {
+        return "Spring Boot makes Java web apps easy!";
+    }
 }
 ```
 
@@ -136,7 +133,7 @@ public record Course(String name, String teacher) {}
 
 @GetMapping("/course")
 public Course course() {
-return new Course("Java in-depth", "Your teacher");
+    return new Course("Java in-depth", "Your teacher");
 }
 ```
 
@@ -148,7 +145,7 @@ Create an endpoint `/time` that returns the current time:
 ```java
 @GetMapping("/time")
 public String currentTime() {
-return LocalDateTime.now().toString();
+    return LocalDateTime.now().toString();
 }
 ```
 
